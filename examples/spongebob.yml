@@ -1,0 +1,12 @@
+---
+settings:
+    weeks: 1
+    days: 5
+
+vars:
+    projectname: SpongeBob
+    taskcount: 3
+    eodnotes:
+      - Was it the best day ever?
+      - Did you spend any time with Gary?
+      - Is Patrick still your best friend?

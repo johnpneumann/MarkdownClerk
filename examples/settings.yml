@@ -1,0 +1,12 @@
+---
+settings:
+    weeks: 3
+    days: 5
+
+vars:
+    projectname: MarkdownClerk
+    taskcount: 5
+    eodnotes:
+      - What was accomplished?
+      - What new questions exist?
+      - What is your confidence level of completing this [1-10]?

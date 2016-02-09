@@ -1,0 +1,6 @@
+include CHANGES LICENSE AUTHORS
+recursive-include tests *
+recursive-exclude tests *.pyc
+recursive-exclude tests *.pyo
+prune docs/_build
+prune docs/_themes
