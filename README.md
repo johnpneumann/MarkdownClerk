@@ -1,4 +1,6 @@
 # MarkdownClerk
+[![Build Status](https://travis-ci.org/johnpneumann/MarkdownClerk.svg?branch=master)](https://travis-ci.org/johnpneumann/MarkdownClerk)
+
 Markdown Clerk is a simple project tracker that
 generates markdown files in a structured way.
 

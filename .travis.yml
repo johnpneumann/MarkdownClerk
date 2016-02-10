@@ -6,12 +6,7 @@ env:
     - TOXENV=check-manifest
     - TOXENV=cov-init
     - TOXENV=flake8
-    - TOXENV=py26
     - TOXENV=py27
-    - TOXENV=py32
-    - TOXENV=py33
-    - TOXENV=py34
-    - TOXENV=py35
 
 install:
     - pip install tox
