@@ -12,13 +12,12 @@ env:
     - TOXENV=py33
     - TOXENV=py34
     - TOXENV=py35
-    - TOXENV=pypy
 
 install:
     - pip install tox
 
 script:
-    - tox
+    - tox -e $TOXENV
 
 notifications:
   email: false
