@@ -32,11 +32,18 @@ setup(
         'markdownclerk'
     ],
     package_data={'markdownclerk': ['templates/*']},
+    setup_requires=[
+        'pytest-runner',
+    ],
     install_requires=[
         'click',
         'Jinja2',
         'boltons',
         'pyyaml',
+    ],
+    tests_require=[
+        'pytest',
+        'mock',
     ],
     entry_points={
         'console_scripts': [
