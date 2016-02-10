@@ -10,6 +10,7 @@
 omit =
     *mock*
 branch = True
+source = markdownclerk
 
 [report]
 # Regexes for lines to exclude from consideration
@@ -31,9 +32,10 @@ exclude_lines =
 
 ignore_errors = True
 
+fail_under = 90
+
 [html]
 directory = coverage/html
 
 [xml]
 output = coverage/xml/coverage.xml
-

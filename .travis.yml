@@ -10,12 +10,9 @@ env:
 
 install:
   - pip install tox
-  - pip install coveralls
 
 script:
   - tox -e $TOXENV
-
-after_success: coveralls
 
 notifications:
   email: false
