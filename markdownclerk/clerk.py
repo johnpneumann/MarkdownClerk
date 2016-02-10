@@ -22,18 +22,16 @@ from jinja2 import Environment, FileSystemLoader
 # Custom
 
 
-DEFAULT_TEMPLATE_FILE = 'default.md'
-DEFAULT_TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+DEFAULT_TEMPLATE_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates', 'default.md'))
 DEFAULT_SETTINGS_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates', 'settings.yml'))
 
 
 @click.command()
 @click.version_option()
 @click.argument('location', type=click.Path(file_okay=False, dir_okay=True))
-@click.option('template_dir', '--template-dir', default=DEFAULT_TEMPLATE_DIR, type=click.Path(file_okay=False, dir_okay=True, exists=True, readable=True), help="The directory to the template file(s).")
-@click.option('template_file', '--template-file', default=DEFAULT_TEMPLATE_FILE, help="The template file to use for generation.")
+@click.option('template_file', '--template-file', default=DEFAULT_TEMPLATE_FILE, type=click.Path(file_okay=True, exists=True, readable=True), help="The template file to use for generation.")
 @click.option('settings_file', '--settings-file', default=DEFAULT_SETTINGS_FILE, type=click.File('rb'), help="The settings file to use for the markdown.")
-def main(location, template_dir, template_file, settings_file):
+def main(location, template_file, settings_file):
     """Generate a new file for us to work with.
 
     \b
@@ -50,9 +48,10 @@ def main(location, template_dir, template_file, settings_file):
 
     if not os.path.exists(location):
         fileutils.mkdir_p(location)
-
+    template_dir = os.path.dirname(template_file)
+    template_name = os.path.basename(template_file)
     jinja_env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True)
-    template = jinja_env.get_template(template_file)
+    template = jinja_env.get_template(template_name)
     with click.progressbar(length=sum([weeks, days]), label='Creating structure') as progbar:
         for week in range(1, weeks + 1):
             pth = os.path.join(location, 'week{:02d}'.format(week))
