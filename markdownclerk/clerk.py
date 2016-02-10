@@ -12,7 +12,6 @@
 """
 # Built In
 import os
-import sys
 
 # Third Party
 import yaml
@@ -55,17 +54,17 @@ def main(location, template_dir, template_file, settings_file):
     jinja_env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True)
     template = jinja_env.get_template(template_file)
     with click.progressbar(length=sum([weeks, days]), label='Creating structure') as progbar:
-        for week in range(1, weeks+1):
+        for week in range(1, weeks + 1):
             pth = os.path.join(location, 'week{:02d}'.format(week))
             fileutils.mkdir_p(pth)
-            for day in range(1, days+1):
+            for day in range(1, days + 1):
                 daynum = 'day{:02d}'.format(day)
                 day_pth = os.path.join(pth, daynum)
                 fileutils.mkdir_p(day_pth)
                 template_data = template.render(**project_vars).encode('utf-8')
                 with fileutils.atomic_save(os.path.join(day_pth, 'README.md')) as fopen:
                     fopen.writelines(template_data)
-                progbar.update(week+day)
+                progbar.update(week + day)
 
 
 if __name__ == "__main__":

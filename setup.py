@@ -12,7 +12,7 @@ long_description = (
 
 setup(
     name='markdownclerk',
-    version='0.1.0',
+    version='0.2.0',
     author='johnpneumann',
     author_email='john.p.neumann@gmail.com',
     url='https://github.com/johnpneumann/MarkdownClerk',
@@ -31,6 +31,7 @@ setup(
     packages=[
         'markdownclerk'
     ],
+    package_data={'markdownclerk': ['templates/*']},
     install_requires=[
         'click',
         'Jinja2',

@@ -7,7 +7,6 @@
 #    http://nedbatchelder.com/code/coverage/config.html
 # ===========================================================================
 [run]
-source = markdownclerk
 omit =
     *mock*
 branch = True
@@ -37,3 +36,4 @@ directory = coverage/html
 
 [xml]
 output = coverage/xml/coverage.xml
+
