@@ -3,16 +3,19 @@ language: python
 python: 2.7
 
 env:
-    - TOXENV=check-manifest
-    - TOXENV=cov-init
-    - TOXENV=flake8
-    - TOXENV=py27
+  - TOXENV=check-manifest
+  - TOXENV=cov-init
+  - TOXENV=flake8
+  - TOXENV=py27
 
 install:
-    - pip install tox
+  - pip install tox
+  - pip install coveralls
 
 script:
-    - tox -e $TOXENV
+  - tox -e $TOXENV
+
+after_success: coveralls
 
 notifications:
   email: false

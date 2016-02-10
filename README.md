@@ -1,5 +1,6 @@
 # MarkdownClerk
 [![Build Status](https://travis-ci.org/johnpneumann/MarkdownClerk.svg?branch=master)](https://travis-ci.org/johnpneumann/MarkdownClerk)
+[![Coverage Status](https://coveralls.io/repos/github/johnpneumann/MarkdownClerk/badge.svg?branch=master)](https://coveralls.io/github/johnpneumann/MarkdownClerk?branch=master)
 
 Markdown Clerk is a simple project tracker that
 generates markdown files in a structured way.
