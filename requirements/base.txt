@@ -1,0 +1,6 @@
+# MarkdownClerk requirements
+
+Click
+Jinja2
+boltons
+pyyaml

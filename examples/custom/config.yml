@@ -1,0 +1,45 @@
+---
+
+project_name:
+    type: "str"
+    help_text: "What is the name of your project?"
+time_period:
+    type: "choice"
+    help_text: "Will this occur over days, weeks or months?"
+    choices:
+        - "days"
+        - "weeks"
+        - "months"
+    if_choice:
+        weeks:
+            next_opt: "week_generation"
+        months:
+            next_opt: "month_generation"
+week_generation:
+    type: "int"
+    help_text: "How many weeks?"
+    default: 2
+    is_dependency: yes
+month_generation:
+    type: "int"
+    help_text: "How many months?"
+    default: 3
+    is_dependency: yes
+daily_generation:
+    type: "int"
+    help_text: "How many days of the week will you work on this?"
+    default: 5
+task_count:
+    type: "int"
+    help_text: "How many tasks a day do you want?."
+    default: 5
+add_eod_questions:
+    type: "bool"
+    help_text: "Do you want to add end of day questions?"
+    if_yes:
+        next_opt: "eod_questions"
+eod_questions:
+    type: "str"
+    help_text: "Add your eod question and hit enter for the next task to add."
+    multiple: yes
+    is_dependency: yes

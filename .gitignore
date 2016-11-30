@@ -44,13 +44,11 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+coverage/
 
 # Translations
 *.mo
 *.pot
-
-# Django stuff:
-*.log
 
 # Sphinx documentation
 docs/_build/
@@ -58,8 +56,16 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
-.ipynb_checkpoints
+# Vim
+*~
+*.swp
+*.swo
 
-# Temp folders
-tmp/
+# remove ds store
+.DS_Store
+
+# ignore pylint generated files
+pylint_*.txt
+
+# remove tmp
+/tmp
