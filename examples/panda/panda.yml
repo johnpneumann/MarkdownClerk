@@ -1,0 +1,21 @@
+---
+settings:
+  weeks: 3
+  days: 5
+
+vars:
+  grateful: 3
+  great_because: 3
+  affirmation: True
+  focus: True
+  exercise: True
+  priority_count: 5
+  schedule_start: 0700
+  schedule_end: 2100
+  task_count: 8
+  generate_notes: True
+  eodnotes:
+    - name: Today's Wins
+      count: 3
+    - name: How I'll Improve
+      count: 3
