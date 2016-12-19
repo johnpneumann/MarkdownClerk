@@ -34,6 +34,8 @@ ignore_errors = True
 
 fail_under = 90
 
+show_missing = True
+
 [html]
 directory = coverage/html
 

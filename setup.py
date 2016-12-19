@@ -1,53 +1,54 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import re
+import ast
 from setuptools import setup, find_packages
 
 
-long_description = (
-    'A way to generate a markdown file with daily goals over a configurable '
-    'amount weeks to help track projects.'
-)
+_version_re = re.compile(r'__version__\s+=\s+(.*)')
 
+with open('markdownclerk/__init__.py', 'rb') as f:
+    version = str(ast.literal_eval(_version_re.search(f.read().decode('utf-8')).group(1)))
 
 setup(
     name='markdownclerk',
-    version='0.2.1',
-    author='johnpneumann',
-    author_email='john.p.neumann@gmail.com',
-    url='https://github.com/johnpneumann/MarkdownClerk',
-    download_url='https://github.com/johnpneumann/MarkdownClerk/tarball/0.1',
-    description='A simple project goal generator.',
-    long_description=long_description,
-    license='MIT',
-    keywords='markdown goal list',
+    version=version,
+    author='John P. Neumann',
+    description='A simple markdown project tracking generator.',
+    long_description=open('README.rst', 'rb').read().decode('utf-8'),
+    license="MIT license",
     classifiers=[
         'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Intended Audience :: End Users/Desktop',
         'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
     ],
-    packages=[
-        'markdownclerk'
-    ],
+    include_package_data=True,
+    packages=find_packages(exclude=['tests', 'tests.*']),
     package_data={'markdownclerk': ['templates/*']},
+    zip_safe=False,
+    platforms='any',
     setup_requires=[
         'pytest-runner',
     ],
     install_requires=[
-        'click',
+        'Click',
         'Jinja2',
         'boltons',
         'pyyaml',
     ],
     tests_require=[
-        'pytest',
         'mock',
+        'pytest',
+        'pytest-cov',
     ],
     entry_points={
         'console_scripts': [
-            'clerk = markdownclerk.clerk:main',
-        ],
-    },
+            'clerk = markdownclerk.cmds.cli:markdownclerk'
+        ]
+    }
 )

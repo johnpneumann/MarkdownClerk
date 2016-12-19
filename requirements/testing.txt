@@ -1,0 +1,19 @@
+# MarkdownClerk testing requirements
+
+# runner
+tox
+
+# unit tests
+pytest
+
+# code checking
+pytest-cov
+pylint
+flake8
+
+# mocking
+moto
+mock
+
+# include release requirements
+-r release.txt

@@ -1,0 +1,7 @@
+# MarkdownClerk release package requirements
+
+# manifest
+check-manifest
+
+# include documentation requirements
+-r docs.txt

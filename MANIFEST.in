@@ -1,6 +1,27 @@
-include CHANGELOG LICENSE AUTHORS README.md
+include README.rst
+include CHANGELOG.rst
+include CONTRIBUTORS.rst
+include Makefile
 include .coveragerc
-recursive-include examples *
+include .pylintrc
+include LICENSE
+include markdownclerk/templates
+
+exclude .python-version
+exclude .editorconfig
+exclude .github
+exclude examples
+exclude requirements
+exclude requirements.txt
+
+prune docs/_build
+prune docs/_themes
+
 recursive-include tests *
-recursive-exclude tests *.pyc
-recursive-exclude tests *.pyo
+recursive-include docs *
+recursive-include markdownclerk/templates *
+
+recursive-exclude examples *
+recursive-exclude *.pyc *.pyo .DS_Store
+recursive-exclude .github *
+recursive-exclude requirements *.txt
