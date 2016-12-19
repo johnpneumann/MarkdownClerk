@@ -14,7 +14,9 @@ setup(
     name='markdownclerk',
     version=version,
     author='John P. Neumann',
+    author_email='john.p.neumann@gmail.com',
     description='A simple markdown project tracking generator.',
+    url='https://github.com/johnpneumann/MarkdownClerk',
     long_description=open('README.rst', 'rb').read().decode('utf-8'),
     license="MIT license",
     classifiers=[
@@ -29,7 +31,7 @@ setup(
     ],
     include_package_data=True,
     packages=find_packages(exclude=['tests', 'tests.*']),
-    package_data={'markdownclerk': ['templates/*']},
+    package_data={'markdownclerk': ['templates/project/*']},
     zip_safe=False,
     platforms='any',
     setup_requires=[
